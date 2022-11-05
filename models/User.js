@@ -16,13 +16,6 @@ const userSchema = new mongoose.Schema(
         default: 2001,
       },
     ],
-    assignedProjects: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Project",
-        required: false,
-      },
-    ],
     active: {
       type: Boolean,
       default: true,

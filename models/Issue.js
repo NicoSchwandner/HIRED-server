@@ -21,7 +21,7 @@ const issueSchema = new mongoose.Schema(
       required: true,
     },
     type: {
-      type: String,
+      type: Number,
       required: false,
     },
     status: {

@@ -1,4 +1,4 @@
-const User = require("../models/User");
+// const User = require("../models/User");
 // const Issue = require("../models/Issue");
 const Project = require("../models/Project");
 const asyncHandler = require("express-async-handler");
@@ -53,7 +53,7 @@ const createNewProject = asyncHandler(async (req, res) => {
 // @route PATCH /projects
 // @access Private
 const updateProject = asyncHandler(async (req, res) => {
-  const { id, name, description, assigned_staff } = req.body;
+  const { id, name, description } = req.body;
 
   // Confirm data
   if (!id) {
@@ -84,7 +84,7 @@ const updateProject = asyncHandler(async (req, res) => {
     project.name = name;
   }
 
-  if (assigned_staff) project.assigned_staff = assigned_staff;
+  if (description) project.description = description;
 
   const updatedProject = await project.save();
 
@@ -103,12 +103,10 @@ const deleteProject = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: "Project ID required" });
   }
 
-  const assignedUsers = await User.findOne({ assignedProjects: id })
-    .lean()
-    .exec();
-  if (assignedUsers) {
-    return res.status(400).json({ message: "Project has assigned users" });
-  }
+  // const assignedIssues = await Issue.findOne({ project: id }).lean().exec();
+  // if (assignedIssues) {
+  //   return res.status(400).json({ message: "Project has assigned issues" });
+  // }
 
   // Check if user exists
   const project = await Project.findById(id).exec();

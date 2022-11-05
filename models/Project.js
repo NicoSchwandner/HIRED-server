@@ -10,13 +10,11 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // assigned_staff: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "User",
-    //     required: false,
-    //   },
-    // ],
+    // status: {
+    //   type: Number,
+    //   required: false,
+    //   default: 0,
+    // },
   },
   { timestamps: true }
 );
