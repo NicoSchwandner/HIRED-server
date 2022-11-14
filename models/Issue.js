@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const issueSchema = new mongoose.Schema(
   {
@@ -69,11 +69,11 @@ const issueSchema = new mongoose.Schema(
     // ],
   },
   { timestamps: true }
-);
+)
 
 issueSchema.pre("save", function (next) {
-  this.updatedAt = Date.now;
-  next();
-});
+  this.updatedAt = Date.now
+  next()
+})
 
-module.exports = mongoose.model("Issue", issueSchema);
+module.exports = mongoose.model("Issue", issueSchema)
