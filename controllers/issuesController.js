@@ -28,7 +28,10 @@ const createNewIssue = asyncHandler(async (req, res) => {
   }
 
   // Check for duplicates
-  const duplicate = await Issue.findOne({ title }).lean().exec()
+  const duplicate = await Issue.findOne({ title })
+    .collation({ locale: "en", strength: 2 })
+    .lean()
+    .exec()
 
   if (duplicate) {
     return res.status(409).json({
@@ -81,7 +84,10 @@ const updateIssue = asyncHandler(async (req, res) => {
 
   if (title) {
     // Check for duplicates
-    const duplicate = await Issue.findOne({ title }).lean().exec()
+    const duplicate = await Issue.findOne({ title })
+      .collation({ locale: "en", strength: 2 })
+      .lean()
+      .exec()
 
     //Allow updates to the original issue
     if (duplicate && duplicate?._id.toString() !== id) {
