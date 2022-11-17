@@ -7,7 +7,9 @@ const asyncHandler = require("express-async-handler")
 // @route GET /issues
 // @access Private
 const getAllIssues = asyncHandler(async (req, res) => {
-  const issues = await Issue.find().lean()
+  const issues = await Issue.find()
+    .populate("assignedTo submitter", "username")
+    .lean()
   if (!issues?.length) {
     return res.status(400).json({ message: "No issues found" })
   }
