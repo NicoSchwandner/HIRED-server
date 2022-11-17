@@ -22,7 +22,7 @@ const issueSchema = new mongoose.Schema(
     },
     type: {
       type: Number,
-      required: false,
+      required: true,
     },
     status: {
       type: Number,
