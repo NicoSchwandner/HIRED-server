@@ -17,7 +17,8 @@ const login = asyncHandler(async (req, res) => {
 
   const foundUser = await User.findOne({ username }).exec()
 
-  if (!foundUser || !foundUser.active) {
+  // if (!foundUser || !foundUser.active) {
+  if (!foundUser) {
     // return res.status(401).json({ message: "Unautorized - User not found or user inactive"})
     return res.status(401).json({ message: "Unautorized" })
   }

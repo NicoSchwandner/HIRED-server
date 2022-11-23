@@ -62,19 +62,13 @@ const createNewUser = asyncHandler(async (req, res) => {
 // @route PATCH /users
 // @access Private
 const updateUser = asyncHandler(async (req, res) => {
-  const { id, username, roles, active, password } = req.body
+  const { id, username, roles, password } = req.body
 
   // Confirm data
   // if (!id || !username || !password || !active || !Array.isArray(roles) || !roles.length) {
-  if (
-    !id ||
-    !username ||
-    typeof active !== "boolean" ||
-    !Array.isArray(roles) ||
-    !roles.length
-  ) {
+  if (!id || !username || !Array.isArray(roles) || !roles.length) {
     return res.status(400).json({
-      message: "The following fields are required: id, username, active, roles",
+      message: "The following fields are required: id, username, roles",
     })
   }
 
@@ -100,7 +94,6 @@ const updateUser = asyncHandler(async (req, res) => {
 
   user.username = username
   user.roles = roles
-  user.active = active
 
   if (password) {
     // Hash password

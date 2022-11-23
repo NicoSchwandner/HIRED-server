@@ -14,10 +14,6 @@ const userSchema = new mongoose.Schema(
       type: [Number],
       default: [2001],
     },
-    active: {
-      type: Boolean,
-      default: true,
-    },
   },
   { timestamps: true }
 )
