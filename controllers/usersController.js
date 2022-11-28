@@ -92,6 +92,18 @@ const updateUser = asyncHandler(async (req, res) => {
     })
   }
 
+  const otherAdmins = await User.findOne({
+    $and: [{ roles: { $eq: 5150 } }, { _id: { $not: { $eq: id } } }], // problem with $not
+  })
+    .lean()
+    .exec()
+
+  if (!otherAdmins && roles.indexOf(5150) == -1)
+    return res.status(400).json({
+      message:
+        "There needs to be at least one User with the Admin role. Assign the Admin role to someone else and try again.",
+    })
+
   user.username = username
   user.roles = roles
 
