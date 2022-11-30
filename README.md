@@ -9,11 +9,11 @@ You can access the web app via [hired-issue-tracker.onrender.com](https://hired-
 
 If you have any questions, don't hesitate to reach out to me!
 
-Nicolas Schwandner
-Kabelgatan 37E
-41457 Göteborg
-Sweden
-[+46 79 300 96 93](tel:+46793009693)
+Nicolas Schwandner  
+Kabelgatan 37E  
+41457 Göteborg  
+Sweden  
+[+46 79 300 96 93](tel:+46793009693)  
 [nico.schwandner@gmail.com](mailto:nico.schwandner@gmail.com)
 
 # Acknoledgements
